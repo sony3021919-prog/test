@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wee&#x7C21;&#x7D04;&#x4EFB;&#x52D9;&#x770B;&#x677F;" />
+  <title>Wee | &#x7C21;&#x7D04;&#x4EFB;&#x52D9;&#x770B;&#x677F;</title>
+  <style>
+    :root { color-scheme: light; --bg:#f6f7fb; --card:#fff; --text:#1f2937; --muted:#6b7280; --primary:#4f46e5; --primary-hover:#4338ca; --border:#e5e7eb; --done-bg:#ecfdf5; --done-text:#065f46; --doing-bg:#eff6ff; --doing-text:#1e40af; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif; background:var(--bg); color:var(--text); line-height:1.5; }
+    .container { max-width:860px; margin:36px auto; padding:0 18px; }
+    .page-header { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:24px; }
+    h1 { margin:0 0 6px; font-size:1.75rem; }
+    .subtitle { margin:0; color:var(--muted); font-size:.95rem; }
+    .space-link { flex:0 0 auto; color:var(--primary); font-size:.9rem; font-weight:600; text-decoration:none; }
+    .space-link:hover { text-decoration:underline; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:12px; margin-bottom:20px; }
+    .stat-card,.panel { background:var(--card); border:1px solid var(--border); border-radius:12px; }
+    .stat-card { padding:16px; }
+    .stat-label { color:var(--muted); font-size:.85rem; }
+    .stat-value { margin-top:4px; font-size:1.6rem; font-weight:700; }
+    .panel { margin-bottom:20px; padding:20px; }
+    .form-grid { display:grid; grid-template-columns:2fr 1fr 1fr auto; gap:10px; align-items:end; }
+    label { display:block; margin-bottom:6px; color:var(--muted); font-size:.85rem; }
+    input,select { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:#fff; color:var(--text); font:inherit; font-size:.95rem; }
+    input:focus,select:focus,button:focus-visible,a:focus-visible { outline:3px solid #a5b4fc; outline-offset:2px; }
+    button { padding:10px 16px; border:0; border-radius:8px; background:var(--primary); color:#fff; font:inherit; font-size:.95rem; font-weight:600; cursor:pointer; }
+    button:hover { background:var(--primary-hover); }
+    button.secondary { border:1px solid var(--border); background:#f3f4f6; color:var(--text); }
+    button.secondary:hover { background:#e5e7eb; }
+    button.danger { padding:6px 10px; background:#fee2e2; color:#991b1b; font-size:.85rem; }
+    button.danger:hover { background:#fecaca; }
+    .toolbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+    .filter-group,.row-actions { display:flex; flex-wrap:wrap; gap:8px; }
+    .filter-button[aria-pressed="true"] { border-color:#c7d2fe; background:#e0e7ff; color:#3730a3; }
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:.95rem; }
+    th,td { padding:12px 10px; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle; }
+    th { color:var(--muted); font-size:.85rem; font-weight:600; }
+    .badge { display:inline-block; padding:3px 10px; border-radius:999px; font-size:.8rem; font-weight:600; white-space:nowrap; }
+    .badge.doing { background:var(--doing-bg); color:var(--doing-text); }
+    .badge.done { background:var(--done-bg); color:var(--done-text); }
+    .month-filter { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:.9rem; }
+    .month-filter input { width:auto; }
+    .progress-control { min-width:130px; }
+    .progress-control input { display:block; padding:0; accent-color:var(--primary); }
+    .progress-label { color:var(--muted); font-size:.8rem; }
+    .form-notes { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    textarea { width:100%; min-height:68px; padding:9px 11px; border:1px solid var(--border); border-radius:8px; font:inherit; resize:vertical; }
+    .inline-number { width:78px; padding:7px; }
+    .inline-note { width:190px; min-width:150px; min-height:58px; }
+    .empty { padding:28px 0; color:var(--muted); text-align:center; }
+    @media(max-width:720px) { .container{margin:24px auto}.page-header{flex-direction:column}.stats,.form-grid,.form-notes{grid-template-columns:1fr}.form-notes{grid-column:auto}.form-grid button{width:100%}.panel{padding:16px}th,td{padding:10px 8px} }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <div><h1>Wee | &#x7C21;&#x7D04;&#x4EFB;&#x52D9;&#x770B;&#x677F;</h1><p class="subtitle">&#x8F15;&#x9B06;&#x6574;&#x7406;&#x5F85;&#x8FA6;&#x4E8B;&#x9805;&#xFF0C;&#x96A8;&#x6642;&#x638C;&#x63E1;&#x5B8C;&#x6210;&#x9032;&#x5EA6;&#x3002;</p></div>
+      <a class="space-link" href="https://huggingface.co/spaces/sony3021919/wee" target="_blank" rel="noopener noreferrer">&#x5728; Hugging Face &#x958B;&#x555F; &#x2197;</a>
+    </header>
+    <section class="stats" aria-label="&#x4EFB;&#x52D9;&#x7D71;&#x8A08;">
+      <div class="stat-card"><div class="stat-label">&#x4EFB;&#x52D9;&#x7E3D;&#x6578;</div><div class="stat-value" id="totalCount">0</div></div>
+      <div class="stat-card"><div class="stat-label">&#x9032;&#x884C;&#x4E2D;</div><div class="stat-value" id="doingCount">0</div></div>
+      <div class="stat-card"><div class="stat-label">&#x6574;&#x9AD4;&#x5B8C;&#x6210;&#x7387;</div><div class="stat-value" id="completionRate">0%</div></div>
+      <div class="stat-card"><div class="stat-label">&#x9078;&#x5B9A;&#x6708;&#x4EFD;&#x4EFB;&#x52D9;</div><div class="stat-value" id="monthTaskCount">0</div></div>
+      <div class="stat-card"><div class="stat-label">&#x7576;&#x6708;&#x5E73;&#x5747;&#x9032;&#x5EA6;</div><div class="stat-value" id="monthProgress">0%</div></div>
+    </section>
+    <section class="panel" aria-label="&#x65B0;&#x589E;&#x4EFB;&#x52D9;">
+      <form id="itemForm" class="form-grid">
+        <div><label for="titleInput">&#x4EFB;&#x52D9;&#x540D;&#x7A31;</label><input id="titleInput" type="text" maxlength="160" placeholder="&#x4F8B;&#x5982;&#xFF1A;&#x6574;&#x7406;&#x672C;&#x9031;&#x5DE5;&#x4F5C;&#x8A08;&#x756B;" required /></div>
+        <div><label for="categoryInput">&#x4EFB;&#x52D9;&#x5206;&#x985E;</label><select id="categoryInput"><option value="&#x5DE5;&#x4F5C;">&#x5DE5;&#x4F5C;</option><option value="&#x500B;&#x4EBA;">&#x500B;&#x4EBA;</option><option value="&#x5B78;&#x7FD2;">&#x5B78;&#x7FD2;</option><option value="&#x5176;&#x4ED6;">&#x5176;&#x4ED6;</option></select></div>
+        <div><label for="plannedProgressInput">&#x9810;&#x5B9A;&#x9032;&#x5EA6; (%)</label><input id="plannedProgressInput" type="number" min="0" max="100" step="5" value="0" /></div>
+        <div><label for="statusInput">&#x4EFB;&#x52D9;&#x72C0;&#x614B;</label><select id="statusInput"><option value="doing">&#x9032;&#x884C;&#x4E2D;</option><option value="done">&#x5DF2;&#x5B8C;&#x6210;</option></select></div>
+        <div><label for="monthInput">&#x57F7;&#x884C;&#x6708;&#x4EFD;</label><input id="monthInput" type="month" required /></div>
+        <div class="form-notes">
+          <div><label for="improvementInput">&#x6539;&#x5584;&#x539F;&#x56E0;</label><textarea id="improvementInput" maxlength="500" placeholder="&#x8A18;&#x9304;&#x6539;&#x5584;&#x52D5;&#x6A5F;&#x6216;&#x9810;&#x8A08;&#x6539;&#x9032;&#x65B9;&#x5411;"></textarea></div>
+          <div><label for="reviewInput">&#x6AA2;&#x8A0E;&#x539F;&#x56E0;</label><textarea id="reviewInput" maxlength="500" placeholder="&#x8A18;&#x9304;&#x57F7;&#x884C;&#x5F8C;&#x7684;&#x6AA2;&#x8A0E;&#x8207;&#x539F;&#x56E0;"></textarea></div>
+        </div>
+        <button type="submit">&#x65B0;&#x589E;&#x4EFB;&#x52D9;</button>
+      </form>
+    </section>
+    <section class="panel" aria-label="&#x4EFB;&#x52D9;&#x6E05;&#x55AE;">
+      <div class="toolbar">
+        <div class="filter-group" role="group" aria-label="&#x7BE9;&#x9078;&#x4EFB;&#x52D9;">
+          <button type="button" class="secondary filter-button" data-filter="all" aria-pressed="true">&#x5168;&#x90E8;</button><button type="button" class="secondary filter-button" data-filter="doing" aria-pressed="false">&#x9032;&#x884C;&#x4E2D;</button><button type="button" class="secondary filter-button" data-filter="done" aria-pressed="false">&#x5DF2;&#x5B8C;&#x6210;</button>
+        </div>
+        <div class="month-filter"><label for="monthFilter">&#x57F7;&#x884C;&#x6708;&#x4EFD;</label><input id="monthFilter" type="month" /></div>
+        <button type="button" class="secondary" id="resetSampleBtn">&#x9084;&#x539F;&#x7BC4;&#x4F8B;&#x4EFB;&#x52D9;</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th scope="col">&#x4EFB;&#x52D9;&#x540D;&#x7A31;</th><th scope="col">&#x5206;&#x985E;</th><th scope="col">&#x6708;&#x4EFD;</th><th scope="col">&#x9810;&#x5B9A;&#x9032;&#x5EA6;</th><th scope="col">&#x5B8C;&#x6210;&#x9032;&#x5EA6;</th><th scope="col">&#x72C0;&#x614B;</th><th scope="col">&#x6539;&#x5584;&#x539F;&#x56E0;</th><th scope="col">&#x6AA2;&#x8A0E;&#x539F;&#x56E0;</th><th scope="col">&#x64CD;&#x4F5C;</th></tr></thead><tbody id="tableBody"></tbody></table></div>
+    </section>
+  </main>
+  <script>
+    const STORAGE_KEY = "wee_board_items_v1";
+    const thisMonth = new Date().toISOString().slice(0, 7);
+    const sampleItems = [
+      { id: 1, title: "Plan this month's priorities", category: "\u5de5\u4f5c", status: "done", month: thisMonth, plannedProgress: 100, completedProgress: 100, improvementReason: "", reviewReason: "" },
+      { id: 2, title: "Explore Hugging Face Spaces", category: "\u5b78\u7fd2", status: "doing", month: thisMonth, plannedProgress: 60, completedProgress: 45, improvementReason: "", reviewReason: "" },
+      { id: 3, title: "Organize next month's tasks", category: "\u500b\u4eba", status: "doing", month: thisMonth, plannedProgress: 30, completedProgress: 15, improvementReason: "", reviewReason: "" }
+    ];
+    function loadItems() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        if (Array.isArray(saved) && saved.every(item => item && Number.isFinite(item.id) && typeof item.title === "string" && typeof item.category === "string" && ["doing", "done"].includes(item.status))) {
+          return saved.map(item => {
+            const actual = Number.isFinite(item.completedProgress) ? item.completedProgress : (Number.isFinite(item.progress) ? item.progress : (item.status === "done" ? 100 : 0));
+            return { ...item, month: /^\d{4}-\d{2}$/.test(item.month || "") ? item.month : thisMonth, plannedProgress: Number.isFinite(item.plannedProgress) ? Math.max(0, Math.min(100, item.plannedProgress)) : 0, completedProgress: Math.max(0, Math.min(100, actual)), improvementReason: item.improvementReason || "", reviewReason: item.reviewReason || "" };
+          });
+        }
+      } catch (error) { console.warn("Could not load saved tasks.", error); }
+      return sampleItems.map(item => ({ ...item }));
+    }
+    let items = loadItems();
+    let currentFilter = "all";
+    const form = document.getElementById("itemForm");
+    const titleInput = document.getElementById("titleInput");
+    const categoryInput = document.getElementById("categoryInput");
+    const statusInput = document.getElementById("statusInput");
+    const plannedProgressInput = document.getElementById("plannedProgressInput");
+    const improvementInput = document.getElementById("improvementInput");
+    const reviewInput = document.getElementById("reviewInput");
+    const monthInput = document.getElementById("monthInput");
+    const monthFilter = document.getElementById("monthFilter");
+    const tableBody = document.getElementById("tableBody");
+    monthInput.value = thisMonth;
+    monthFilter.value = thisMonth;
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[char]);
+    }
+    function saveAndRender() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
+      catch (error) { console.warn("Could not save tasks.", error); }
+      renderStats(); renderTable();
+    }
+    function renderStats() {
+      const total = items.length;
+      const done = items.filter(item => item.status === "done").length;
+      document.getElementById("totalCount").textContent = total;
+      document.getElementById("doingCount").textContent = total - done;
+      document.getElementById("completionRate").textContent = `${total ? Math.round(done / total * 100) : 0}%`;
+      const monthItems = items.filter(item => item.month === monthFilter.value);
+      document.getElementById("monthTaskCount").textContent = monthItems.length;
+      const average = monthItems.length ? Math.round(monthItems.reduce((sum, item) => sum + item.completedProgress, 0) / monthItems.length) : 0;
+      document.getElementById("monthProgress").textContent = `${average}%`;
+    }
+    function renderTable() {
+      const filtered = items.filter(item => (currentFilter === "all" || item.status === currentFilter) && (!monthFilter.value || item.month === monthFilter.value));
+      if (!filtered.length) { tableBody.innerHTML = '<tr><td colspan="9" class="empty">&#x6B64;&#x6708;&#x5C1A;&#x7121;&#x7B26;&#x5408;&#x689D;&#x4EF6;&#x7684;&#x4EFB;&#x52D9;&#x3002;</td></tr>'; return; }
+      tableBody.innerHTML = filtered.map(item => {
+        const isDone = item.status === "done";
+        return `<tr><td>${escapeHtml(item.title)}</td><td>${escapeHtml(item.category)}</td><td>${escapeHtml(item.month)}</td><td><input class="inline-number" type="number" min="0" max="100" step="5" value="${item.plannedProgress}" data-action="planned" data-id="${item.id}" aria-label="&#x9810;&#x5B9A;&#x9032;&#x5EA6;"></td><td><div class="progress-control"><input type="range" min="0" max="100" step="5" value="${item.completedProgress}" data-action="progress" data-id="${item.id}" aria-label="&#x5B8C;&#x6210;&#x9032;&#x5EA6;"><span class="progress-label">${item.completedProgress}%</span></div></td><td><span class="badge ${isDone ? "done" : "doing"}">${isDone ? "&#x5DF2;&#x5B8C;&#x6210;" : "&#x9032;&#x884C;&#x4E2D;"}</span></td><td><textarea class="inline-note" maxlength="500" data-action="improvement" data-id="${item.id}" aria-label="&#x6539;&#x5584;&#x539F;&#x56E0;">${escapeHtml(item.improvementReason)}</textarea></td><td><textarea class="inline-note" maxlength="500" data-action="review" data-id="${item.id}" aria-label="&#x6AA2;&#x8A0E;&#x539F;&#x56E0;">${escapeHtml(item.reviewReason)}</textarea></td><td><div class="row-actions"><button type="button" class="secondary" data-action="toggle" data-id="${item.id}">${isDone ? "&#x6A19;&#x70BA;&#x9032;&#x884C;&#x4E2D;" : "&#x6A19;&#x70BA;&#x5B8C;&#x6210;"}</button><button type="button" class="danger" data-action="delete" data-id="${item.id}" aria-label="&#x522A;&#x9664;&#xFF1A;${escapeHtml(item.title)}">&#x522A;&#x9664;</button></div></td></tr>`;
+      }).join("");
+    }
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const title = titleInput.value.trim();
+      if (!title) return;
+      const completedProgress = statusInput.value === "done" ? 100 : 0;
+      items.unshift({ id: Date.now(), title, category: categoryInput.value, status: statusInput.value, month: monthInput.value || monthFilter.value || thisMonth, plannedProgress: Math.max(0, Math.min(100, Number(plannedProgressInput.value) || 0)), completedProgress, improvementReason: improvementInput.value.trim(), reviewReason: reviewInput.value.trim() });
+      titleInput.value = ""; statusInput.value = "doing"; plannedProgressInput.value = "0"; improvementInput.value = ""; reviewInput.value = ""; saveAndRender(); titleInput.focus();
+    });
+    tableBody.addEventListener("click", event => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const id = Number(button.dataset.id);
+      if (button.dataset.action === "toggle") items = items.map(item => item.id === id ? { ...item, status: item.status === "done" ? "doing" : "done", completedProgress: item.status === "done" ? Math.min(item.completedProgress, 95) : 100 } : item);
+      else if (button.dataset.action === "delete") items = items.filter(item => item.id !== id);
+      saveAndRender();
+    });
+    tableBody.addEventListener("input", event => {
+      const slider = event.target.closest('input[data-action="progress"]');
+      if (!slider) return;
+      const id = Number(slider.dataset.id);
+      const progress = Number(slider.value);
+      items = items.map(item => item.id === id ? { ...item, completedProgress: progress, status: progress === 100 ? "done" : "doing" } : item);
+      slider.nextElementSibling.textContent = `${progress}%`;
+    });
+    tableBody.addEventListener("change", event => {
+      const field = event.target.closest("[data-action][data-id]");
+      if (!field) return;
+      if (field.dataset.action === "progress") { saveAndRender(); return; }
+      const id = Number(field.dataset.id);
+      items = items.map(item => {
+        if (item.id !== id) return item;
+        if (field.dataset.action === "planned") return { ...item, plannedProgress: Math.max(0, Math.min(100, Number(field.value) || 0)) };
+        if (field.dataset.action === "improvement") return { ...item, improvementReason: field.value.trim() };
+        if (field.dataset.action === "review") return { ...item, reviewReason: field.value.trim() };
+        return item;
+      });
+      saveAndRender();
+    });
+    monthFilter.addEventListener("change", () => { monthInput.value = monthFilter.value; saveAndRender(); });
+    document.querySelectorAll("[data-filter]").forEach(button => button.addEventListener("click", () => {
+      currentFilter = button.dataset.filter;
+      document.querySelectorAll("[data-filter]").forEach(filterButton => filterButton.setAttribute("aria-pressed", String(filterButton === button)));
+      renderTable();
+    }));
+    document.getElementById("resetSampleBtn").addEventListener("click", () => {
+      items = sampleItems.map(item => ({ ...item })); currentFilter = "all";
+      document.querySelectorAll("[data-filter]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === "all")));
+      saveAndRender();
+    });
+    saveAndRender();
+  </script>
+</body>
+</html>
+
